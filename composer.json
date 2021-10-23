@@ -17,8 +17,7 @@
         "laravel/tinker": "^2.0",
         "lcobucci/jwt": "^3.3",
         "ramsey/uuid": "^4.1",
-        "viloveul/query-search": "@dev",
-        "zafex/shart": "dev-master"
+        "zafex/shart": "@dev"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
@@ -50,12 +49,6 @@
         }
     },
     "repositories": [{
-        "type": "path",
-        "options": {
-            "symlink": true
-        },
-        "url": "../phpcom-dev/viloveul/query-search"
-    },{
         "type": "path",
         "options": {
             "symlink": true
