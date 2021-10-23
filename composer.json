@@ -69,8 +69,8 @@
             "@php artisan key:generate --ansi"
         ],
         "genrsa": [
-            "openssl genrsa -out storage/app/local.private.key -passout pass:docotel123456 -aes256 4096",
-            "openssl rsa -pubout -in storage/app/local.private.key -out storage/app/local.public.key -passin pass:docotel123456"
+            "openssl genrsa -out storage/app/local.private.key -passout pass:zafex123456 -aes256 4096",
+            "openssl rsa -pubout -in storage/app/local.private.key -out storage/app/local.public.key -passin pass:zafex123456"
         ]
     }
 }
