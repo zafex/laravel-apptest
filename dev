@@ -1,0 +1,79 @@
+#!/usr/bin/env php
+<?php
+
+$tables = [
+    'preparation',
+
+    'log_query_table',
+    'log_query_detail_table',
+    'log_audit_table',
+    'log_audit_detail_table',
+
+    'system_job_failure_table',
+    'system_reset_password_table',
+
+    'system_revision_table',
+    'system_setting_table',
+    'system_setting_item_table',
+    'system_setting_detail_table',
+    'system_configuration_table',
+    'system_organization_table',
+    'system_media_table',
+    'system_permission_table',
+
+    'system_message_table',
+    'system_message_target_table',
+    'system_notification_table',
+
+    'system_role_table',
+    'system_role_composite_table',
+    'system_role_permission_table',
+    'system_role_notification_table',
+
+    'system_user_table',
+    'system_user_role_table',
+    'system_user_link_table',
+    'system_user_session_table',
+    'system_user_credential_table',
+    'system_user_permission_table',
+    'system_user_notification_table',
+
+    'master_organization_table',
+    'master_employee_table',
+    'master_position_table',
+    'master_structure_table',
+
+    'master_instruksi_table',
+    'master_kodifikasi_table',
+
+    'transaksi_surat_table',
+    'transaksi_surat_detail_table',
+    'transaksi_surat_unggah_table',
+
+    'transaksi_disposisi_table',
+    'transaksi_disposisi_tujuan_table',
+    'transaksi_disposisi_instruksi_table',
+];
+
+$files = glob(__DIR__ . '/database/migrations/*.php');
+
+foreach ($tables as $i => $name) {
+
+    foreach ($files as $file) {
+
+        if (substr($file, -4 - strlen($name)) == ($name . '.php')) {
+            rename(
+                $file,
+                sprintf(
+                    '%s/database/migrations/%s%s_%s.php',
+                    __DIR__,
+                    date('Y_m_d_Hi'),
+                    str_pad($i + 1, 2, '0', STR_PAD_LEFT),
+                    $name
+                )
+            );
+        }
+
+    }
+
+}
